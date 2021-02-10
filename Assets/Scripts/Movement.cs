@@ -1,0 +1,57 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+/// <summary>
+/// Movement Component - Must require A Navmesh Agent to properly work
+/// </summary>
+[RequireComponent(typeof(NavMeshAgent))]
+public class Movement : MonoBehaviour
+{
+    [SerializeField] private PlayerInput _input;
+
+    // Components neededs
+    private NavMeshAgent _agent;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
+
+        if (!_input) Debug.LogError("Movement Error: Missing Input");
+    }
+
+    private void Update()
+    {
+        if(_animator) _animator.SetFloat("Speed", Mathf.Clamp(_agent.velocity.magnitude, 0, 1));
+
+        if(_input.OnInteractionClick())
+        {
+            Collider mouseHit = Utility.MouseToObject().collider;
+            if (mouseHit.CompareTag("Ground"))
+            {
+                SetDestination(Utility.MouseToTerrainPosition());
+            }
+        }
+    }
+
+    /// <summary>
+    /// Sets the destination of the object to move to
+    /// </summary>
+    /// <param name="destination">Destination to move to</param>
+    public void SetDestination(Vector3 p_destination)
+    {
+        _agent.destination = p_destination;
+    }
+
+    /// <summary>
+    /// Check if the agent finishes processing the path
+    /// </summary>
+    /// <returns>Whether or not the Path has finished processing</returns>
+    public WaitUntil WaitForNavMeshToLoad()
+    {
+        return new WaitUntil(() => !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance);
+    }
+}
