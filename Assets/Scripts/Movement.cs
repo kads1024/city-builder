@@ -26,15 +26,6 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         if(_animator) _animator.SetFloat("Speed", Mathf.Clamp(_agent.velocity.magnitude, 0, 1));
-
-        if(_input.OnInteractionClick())
-        {
-            Collider mouseHit = Utility.MouseToObject().collider;
-            if (mouseHit.CompareTag("Ground"))
-            {
-                SetDestination(Utility.MouseToTerrainPosition());
-            }
-        }
     }
 
     /// <summary>
