@@ -23,7 +23,7 @@ public class SelectableContainer : ScriptableObject
         if (!(Selectables.ContainsKey(id)))
         {
             Selectables.Add(id, p_objectToBeAdded);
-            p_objectToBeAdded.AddComponent<Selectable>();
+            p_objectToBeAdded.AddComponent<SelectedObject>();
         }
     }
 
@@ -33,7 +33,7 @@ public class SelectableContainer : ScriptableObject
     /// <param name="p_id">ID of the object to be removed</param>
     public void Deselect(int p_id)
     {
-        Destroy(Selectables[p_id].GetComponent<Selectable>());
+        Destroy(Selectables[p_id].GetComponent<SelectedObject>());
         Selectables.Remove(p_id);
     }
 
@@ -46,7 +46,7 @@ public class SelectableContainer : ScriptableObject
         {
             if (pair.Value != null)
             {
-                Destroy(Selectables[pair.Key].GetComponent<Selectable>());
+                Destroy(Selectables[pair.Key].GetComponent<SelectedObject>());
             }
         }
         Selectables.Clear();
