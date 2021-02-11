@@ -105,20 +105,21 @@ public class SelectionController : MonoBehaviour
                     i++;
                 }
 
-                //generate the mesh
+                // Generate the mesh
                 _selectionMesh = GenerateSelectionMesh(_vertices);
 
                 _selectionBox = gameObject.AddComponent<MeshCollider>();
                 _selectionBox.sharedMesh = _selectionMesh;
                 _selectionBox.convex = true;
                 _selectionBox.isTrigger = true;
-                Debug.Log(_selectionBox.name);
-                if (!Input.GetKey(KeyCode.LeftShift))
+
+                // Deselect Everything if player is not multiple Selecting
+                if (!_input.MultipleSelectionActive())
                 {
                     _selectableContainer.DeselectAll();
                 }
 
-                Destroy(_selectionBox, 1.02f);
+                Destroy(_selectionBox, Time.deltaTime * 5f);
             }
 
             _dragging = false;
