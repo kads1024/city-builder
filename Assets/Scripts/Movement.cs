@@ -7,8 +7,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private PlayerInput _input;
-
     // Components neededs
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -17,13 +15,12 @@ public class Movement : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
-
-        if (!_input) Debug.LogError("Movement Error: Missing Input");
     }
 
     private void Update()
     {
         if(_animator) _animator.SetFloat("Speed", Mathf.Clamp(_agent.velocity.magnitude, 0, 1));
+
     }
 
     /// <summary>
@@ -39,7 +36,7 @@ public class Movement : MonoBehaviour
     /// Check if the agent finishes processing the path
     /// </summary>
     /// <returns>Whether or not the Path has finished processing</returns>
-    public WaitUntil WaitForNavMeshToLoad()
+    public WaitUntil WaitForNavMeshToLoad() 
     {
         return new WaitUntil(() => !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance);
     }
