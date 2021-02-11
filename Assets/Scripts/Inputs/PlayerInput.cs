@@ -25,6 +25,7 @@ public class PlayerInput : ScriptableObject
     [SerializeField] private KeyCode _cameraDown;
     [SerializeField] private KeyCode _cameraLeft;
     [SerializeField] private KeyCode _cameraRight;
+    [SerializeField] private KeyCode _multipleSelection;
 
     /// <summary>
     /// Camera Movement Controls
@@ -40,6 +41,15 @@ public class PlayerInput : ScriptableObject
         if (Input.GetKey(_cameraRight)) direction += Vector3.right;
 
         return direction.normalized;
+    }
+
+    /// <summary>
+    /// If the multiple selection will be used
+    /// </summary>
+    /// <returns>Returns true if you want to select multiple objects</returns>
+    public bool MultipleSelectionActive()
+    {
+        return Input.GetKey(_multipleSelection);
     }
 
     // Mouse Buttons

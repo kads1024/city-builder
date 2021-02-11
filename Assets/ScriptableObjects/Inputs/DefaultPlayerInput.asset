@@ -18,3 +18,4 @@ MonoBehaviour:
   _cameraDown: 115
   _cameraLeft: 97
   _cameraRight: 100
+  _multipleSelection: 304

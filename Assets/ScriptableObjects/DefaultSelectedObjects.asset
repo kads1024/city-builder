@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35af9377db989b548a5d4fce8738686d, type: 3}
-  m_Name: GroundSet
+  m_Script: {fileID: 11500000, guid: 96259b35a09c4da44b806853f3236268, type: 3}
+  m_Name: DefaultSelectedObjects
   m_EditorClassIdentifier: 
-  Items: []
