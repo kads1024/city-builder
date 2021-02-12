@@ -11,22 +11,34 @@ public class ResourceManager : SerializedScriptableObject
     // List of resources owned by the player
     [SerializeField] private Dictionary<ResourceType, int> _resources;
 
+    [ReadOnly, SerializeField] private Dictionary<ResourceType, int> _currentResources;
+    public Dictionary<ResourceType, int> CurrentResources
+    {
+        get { return _currentResources; }
+        set { _currentResources = value; }
+    }
+
+    private void OnEnable()
+    {
+        _currentResources = new Dictionary<ResourceType, int>(_resources);
+    }
+
     // Add a certain resource
     public void AddResource(ResourceType p_resource, int p_amount)
     {
-        _resources[p_resource] += p_amount;
+        _currentResources[p_resource] += p_amount;
     }
 
     // Deduct a certain Resource
     public void DeductResource(ResourceType p_resource, int p_amount)
     {
-        _resources[p_resource] += p_amount;
+        _currentResources[p_resource] += p_amount;
     }
 
     // Check if the player has enough of a specific resource
     public bool HasEnoughResource(ResourceType p_resource, int p_amount)
     {
-        return _resources[p_resource] >= p_amount;
+        return _currentResources[p_resource] >= p_amount;
     }
 }
 

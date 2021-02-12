@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Component that has health and can be damaged
@@ -6,8 +7,8 @@
 public class Damageable : MonoBehaviour
 {
     // Game Events
-    [SerializeField] private GameEvent _onDestroy;
-    [SerializeField] private GameEvent _onHit;
+    private UnityEvent _onDestroy = new UnityEvent();
+    private UnityEvent _onHit = new UnityEvent();
 
     // Health
     [SerializeField] private int _totalHealth = 100;
@@ -26,7 +27,7 @@ public class Damageable : MonoBehaviour
     /// <param name="p_damage"></param>
     public void Hit(int p_damage)
     {
-        _onHit.Raise();
+        _onHit.Invoke();
         _currentHealth -= p_damage;
 
         if (_currentHealth <= 0)
@@ -38,7 +39,29 @@ public class Damageable : MonoBehaviour
     /// </summary>
     private void Destroy()
     {
-        _onDestroy.Raise();
+        _onDestroy.Invoke();
         Destroy(gameObject);
+    }
+
+    // Adds Listeners to the events
+    public void AddOnDestroyListener(UnityAction p_listener)
+    {
+        _onDestroy.AddListener(p_listener);
+    }
+
+    public void AddOnHitListener(UnityAction p_listener)
+    {
+        _onHit.AddListener(p_listener);
+    }
+
+    // Removes Listeners to events
+    public void RemoveOnDestroyListener(UnityAction p_listener)
+    {
+        _onDestroy.RemoveListener(p_listener);
+    }
+
+    public void RemoveOnHitListener(UnityAction p_listener)
+    {
+        _onHit.RemoveListener(p_listener);
     }
 }
