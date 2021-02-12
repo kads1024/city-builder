@@ -8,13 +8,12 @@ using UnityEngine.AI;
 public class Movement : MonoBehaviour
 {
     // Components neededs
+    [SerializeField] private Animator _animator;
     private NavMeshAgent _agent;
-    private Animator _animator;
-
+   
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _animator = GetComponent<Animator>();
     }
 
     private void Update()
