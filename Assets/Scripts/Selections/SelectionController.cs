@@ -1,28 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Handles the selection of units that are selectable
+/// </summary>
 public class SelectionController : MonoBehaviour
 {
-    [SerializeField] private GameObjectRuntimeSet _selectableUnitSet;
-
-    [SerializeField] private PlayerInput _input;
-    [SerializeField] private SelectableContainer _selectableContainer;
-
     private Camera _camera;
 
+    // List of all valid selectable units
+    [SerializeField] private GameObjectRuntimeSet _selectableUnitSet;
+
+    // Input that will drive the Selection
+    [SerializeField] private PlayerInput _input;
+
+    // List of currently selected units
+    [SerializeField] private SelectableContainer _selectableContainer;
+
+    // Record mouse position for calculating selection box
     private Vector3 _mouseStartPosition;
     private Vector3 _mouseEndPosition;
 
+    // If the player is dragging or not
     private bool _dragging;
-
+    
+    // The generated box that will be used for selecting units
     private MeshCollider _selectionBox;
     private Mesh _selectionMesh;
 
-    //the corners of our 2d selection box
+    // The corners of our 2d selection box GUI
     private Vector2[] _corners;
 
-    //the vertices of our meshcollider
+    // The vertices of our mesh collider
     private Vector3[] _vertices;
 
     private void Awake()
@@ -31,13 +39,13 @@ public class SelectionController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _dragging = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Record mouse position when it is first clicked
         if(_input.OnSelectionClick())
