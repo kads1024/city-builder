@@ -46,11 +46,11 @@ public class SelectedUnitsController : MonoBehaviour
                 // Iterate through each unit
                 foreach (GameObject unit in _selectedUnits.Selectables.Values)
                 {
-                    // Must have a movement component
+                    // Must have a attack component
                     Attack attack = unit.GetComponent<Attack>();
                     if (!attack)
                     {
-                        Debug.LogError("MISSING MOVEMENT COMPONENT FOR " + unit.name);
+                        Debug.LogError("MISSING ATTACK COMPONENT FOR " + unit.name);
                     }
                     else // then let the character move
                     {
