@@ -24,15 +24,15 @@ public class ResourceManager : SerializedScriptableObject
     }
 
     // Add a certain resource
-    public void AddResource(ResourceType p_resource, int p_amount)
+    public void AddResource(Cost p_cost)
     {
-        _currentResources[p_resource] += p_amount;
+        _currentResources[p_cost.Resource] += p_cost.Amount;
     }
 
     // Deduct a certain Resource
-    public void DeductResource(ResourceType p_resource, int p_amount)
+    public void DeductResource(Cost p_cost)
     {
-        _currentResources[p_resource] += p_amount;
+        _currentResources[p_cost.Resource] += p_cost.Amount;
     }
 
     // Check if the player has enough of a specific resource

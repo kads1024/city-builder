@@ -10,8 +10,7 @@ public class Resource : MonoBehaviour
     [SerializeField] private ResourceManager _resourceManager;
 
     // The resource to be added and the amount
-    [SerializeField] private ResourceType _resourceType;
-    [SerializeField] private int _amount;
+    [SerializeField] private Cost _resourceGained;
 
     private void OnEnable()
     {
@@ -25,6 +24,6 @@ public class Resource : MonoBehaviour
 
     public void GiveResource()
     {
-        _resourceManager.AddResource(_resourceType, _amount);
+        _resourceManager.AddResource(_resourceGained);
     }
 }
