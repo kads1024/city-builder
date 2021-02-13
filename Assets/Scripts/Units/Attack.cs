@@ -1,17 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Component to enable the player to attack an object. Must have a movement component so that player can go there first before attacking
+/// </summary>
 [RequireComponent(typeof(Movement))]
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private float _attackSpeed;
+    [SerializeField] private CoroutineVariable _playerTask;
+    [SerializeField] private Animator _animator;
 
-    private Coroutine _currentTask;
+    [SerializeField] private float _attackSpeed;
 
     private Damageable _target;
     private Movement _movement;
-    [SerializeField] private Animator _animator;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class Attack : MonoBehaviour
 
     private void Start()
     {
+        // Calculate attack rate
         _attackSpeed = 1f / _attackSpeed;
     }
 
@@ -28,7 +31,7 @@ public class Attack : MonoBehaviour
         StopAttacking();
         _target = p_target;
 
-        _currentTask = StartCoroutine(StartAttack());
+        _playerTask.SetValue(StartCoroutine(StartAttack()));
     }
 
     private IEnumerator StartAttack()
@@ -49,7 +52,7 @@ public class Attack : MonoBehaviour
             }
         }
 
-        _currentTask = null;    
+        _playerTask.Value = null;    
     }
 
     public void AttackEventListener()
@@ -61,8 +64,10 @@ public class Attack : MonoBehaviour
     public void StopAttacking()
     {
         _target = null;
-        if (_currentTask != null)
-            StopCoroutine(_currentTask);
+        if (_playerTask.Value != null)
+        {
+            StopCoroutine(_playerTask.Value);
+        }
+            
     }
-
 }

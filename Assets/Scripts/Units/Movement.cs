@@ -7,6 +7,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Movement : MonoBehaviour
 {
+    // We need to track the current Player's Task.
+    [SerializeField] private CoroutineVariable _playerTask;
+
     // Components neededs
     [SerializeField] private Animator _animator;
     private NavMeshAgent _agent;
@@ -28,6 +31,10 @@ public class Movement : MonoBehaviour
     /// <param name="destination">Destination to move to</param>
     public void SetDestination(Vector3 p_destination)
     {
+        if (_playerTask.Value != null)
+        {
+            StopCoroutine(_playerTask.Value);
+        }
         _agent.destination = p_destination;
     }
 
