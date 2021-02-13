@@ -9,6 +9,7 @@ public class HitVisual : MonoBehaviour
 {
     // Must have access to the Damageable Component
     private Damageable _damageable;
+    [SerializeField] private ParticleSystem _hitParticles;
 
     private void Awake()
     {
@@ -29,5 +30,6 @@ public class HitVisual : MonoBehaviour
     {
         transform.DOComplete();
         transform.DOShakeScale(.5f, .2f, 10, 90, true);
+        Instantiate(_hitParticles, transform.position, Quaternion.identity);
     }
 }
