@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Utility is a helper class to help getting common methods without the need to copy paste code
 /// </summary>
 public static class Utility
 {
+    /// <summary>
+    /// Check if mouse is over a ui element
+    /// </summary>
+    /// <returns>Whether or not the mouse is over a UI element</returns>
+    public static bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
     /// <summary>
     /// Finds where the mouse hits the Terrain
     /// </summary>

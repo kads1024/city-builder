@@ -56,36 +56,36 @@ public class PlayerInput : ScriptableObject
     #region CLICK
     public bool OnSelectionClick()
     {
-        return Input.GetMouseButtonDown((int)_selectionButton);
+        return Input.GetMouseButtonDown((int)_selectionButton) && !Utility.IsMouseOverUI();
     }
 
     public bool OnInteractionClick()
     {
-        return Input.GetMouseButtonDown((int)_interactionButton);
+        return Input.GetMouseButtonDown((int)_interactionButton) && !Utility.IsMouseOverUI();
     }
     #endregion
 
     #region HOLD
     public bool OnSelectionHold()
     {
-        return Input.GetMouseButton((int)_selectionButton);
+        return Input.GetMouseButton((int)_selectionButton) && !Utility.IsMouseOverUI();
     }
 
     public bool OnInteractionHold()
     {
-        return Input.GetMouseButton((int)_interactionButton);
+        return Input.GetMouseButton((int)_interactionButton) && !Utility.IsMouseOverUI();
     }
     #endregion
 
     #region UP
     public bool OnSelectionUp()
     {
-        return Input.GetMouseButtonUp((int)_selectionButton);
+        return Input.GetMouseButtonUp((int)_selectionButton) && !Utility.IsMouseOverUI();
     }
 
     public bool OnInteractionUp()
     {
-        return Input.GetMouseButtonUp((int)_interactionButton);
+        return Input.GetMouseButtonUp((int)_interactionButton) && !Utility.IsMouseOverUI();
     }
     #endregion
 

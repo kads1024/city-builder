@@ -10,6 +10,9 @@ public class Attack : MonoBehaviour
     [SerializeField] private CoroutineVariable _playerTask;
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private AnimationEventListener _animationEvent;
+    [SerializeField] private GameEvent _attackEventToBeUsed;
+
     [SerializeField] private float _attackSpeed;
 
     private Damageable _target;
@@ -36,8 +39,8 @@ public class Attack : MonoBehaviour
 
     private IEnumerator StartAttack()
     {
-        
-        while(_target)
+        _animationEvent.SetAttackEvent(_attackEventToBeUsed);
+        while (_target)
         {
             _movement.SetDestination(_target.transform.position);
             yield return _movement.WaitForNavMeshToLoad();

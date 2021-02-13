@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
 /// <summary>
@@ -32,7 +30,6 @@ public class Building : MonoBehaviour
 
     private void Awake()
     {
-        _buildingRenderer = _buildingTransform.GetComponent<MeshRenderer>();
         _impulseSource = GetComponent<Cinemachine.CinemachineImpulseSource>();
     }
 
@@ -40,6 +37,7 @@ public class Building : MonoBehaviour
     {
         // Get the building transform
         _buildingTransform = transform.GetChild(0);
+        _buildingRenderer = _buildingTransform.GetComponent<MeshRenderer>();
 
         // Reset the current work
         _currentWork = 0;
@@ -74,6 +72,7 @@ public class Building : MonoBehaviour
     /// <returns>Whether or not the building is finished</returns>
     public bool IsFinished()
     {
+        
         if (_currentWork >= _totalWorkToComplete && !_doneBuilding && _buildingRenderer)
         {
             // Set done building
@@ -94,9 +93,18 @@ public class Building : MonoBehaviour
     /// Since the cost is a private variable, we still need to have access to it
     /// </summary>
     /// <returns>The cost of this building  </returns>
-    public Cost Cost()
+    public Cost GetCost()
     {
         return _resourceCost;
+    }
+
+    /// <summary>
+    /// Since the radius is a private variable, we still need to have access to it
+    /// </summary>
+    /// <returns>The radius of this building  </returns>
+    public float GetRadius()
+    {
+        return _radius;
     }
 
     /// <summary>

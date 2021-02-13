@@ -32,7 +32,7 @@ public class ResourceManager : SerializedScriptableObject
     // Deduct a certain Resource
     public void DeductResource(Cost p_cost)
     {
-        _currentResources[p_cost.Resource] += p_cost.Amount;
+        _currentResources[p_cost.Resource] -= p_cost.Amount;
     }
 
     // Check if the player has enough of a specific resource

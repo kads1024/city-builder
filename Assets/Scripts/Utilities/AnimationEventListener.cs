@@ -7,7 +7,7 @@ public class AnimationEventListener : MonoBehaviour
 {
     // List of animation events to call when an animation event is called
     [SerializeField] private GameEvent _footStepEvent;
-    [SerializeField] public GameEvent _attackEvent;
+    [SerializeField] private GameEvent _attackEvent;
 
     public void FootstepEvent()
     {
@@ -17,5 +17,10 @@ public class AnimationEventListener : MonoBehaviour
     public void AttackEvent()
     {
         _attackEvent.Raise();
+    }
+
+    public void SetAttackEvent(GameEvent p_event)
+    {
+        _attackEvent = p_event;
     }
 }
