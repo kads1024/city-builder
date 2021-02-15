@@ -113,7 +113,7 @@ public class Building : MonoBehaviour
     /// <returns>The position offset of the object</returns>
     public Vector3 GetPositionOffset()
     {
-        return _positionOffest;
+        return _positionOffset;
     }
 
     /// <summary>

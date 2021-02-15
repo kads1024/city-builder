@@ -16,7 +16,7 @@ public class Damageable : MonoBehaviour
     
     // Values for calculating position to be hit
     [SerializeField] private float _radius;
-    [SerializeField] private Vector3 _positionOffest;
+    [SerializeField] private Vector3 _positionOffset;
 
     // Initialization
     private void Start()
@@ -62,7 +62,7 @@ public class Damageable : MonoBehaviour
     /// <returns>The position offset of the object</returns>
     public Vector3 GetPositionOffset()
     {
-        return _positionOffest;
+        return _positionOffset;
     }
 
     // Adds Listeners to the events
@@ -93,6 +93,6 @@ public class Damageable : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + _positionOffest, _radius);
+        Gizmos.DrawWireSphere(transform.position + _positionOffset, _radius);
     }
 }

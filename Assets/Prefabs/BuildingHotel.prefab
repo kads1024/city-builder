@@ -53,11 +53,11 @@ MonoBehaviour:
     Amount: 100
   _totalWorkToComplete: 100
   _height: 10
-  _radius: 6.81
+  _radius: 6.47
+  _positionOffset: {x: 0, y: 3.45, z: -0.57}
   _stateColors:
   - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 1}
   - {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
-  _impulseSource: {fileID: 0}
 --- !u!208 &7855460039312600431
 NavMeshObstacle:
   m_ObjectHideFlags: 0
