@@ -13,6 +13,10 @@ public class Damageable : MonoBehaviour
     // Health
     [SerializeField] private int _totalHealth = 100;
     private int _currentHealth;
+    
+    // Values for calculating position to be hit
+    [SerializeField] private float _radius;
+    [SerializeField] private Vector3 _positionOffest;
 
     // Initialization
     private void Start()
@@ -43,6 +47,24 @@ public class Damageable : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Gets the size in radius of the damageable
+    /// </summary>
+    /// <returns>The size in radius of the damageable</returns>
+    public float GetRadius()
+    {
+        return _radius;
+    }
+
+    /// <summary>
+    /// Gets the offset position of the object
+    /// </summary>
+    /// <returns>The position offset of the object</returns>
+    public Vector3 GetPositionOffset()
+    {
+        return _positionOffest;
+    }
+
     // Adds Listeners to the events
     public void AddOnDestroyListener(UnityAction p_listener)
     {
@@ -63,5 +85,14 @@ public class Damageable : MonoBehaviour
     public void RemoveOnHitListener(UnityAction p_listener)
     {
         _onHit.RemoveListener(p_listener);
+    }
+
+    /// <summary>
+    /// Visual to draw object size
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + _positionOffest, _radius);
     }
 }

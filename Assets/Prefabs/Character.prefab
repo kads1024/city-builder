@@ -216,9 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 707358919891469129}
   _animationEvent: {fileID: 2459453852883621880}
-  _attackEventToBeUsed: {fileID: 11400000, guid: 9b5d1aa4195be214d9c13482062a5896,
+  _collectEventToBeUsed: {fileID: 11400000, guid: 9b5d1aa4195be214d9c13482062a5896,
     type: 2}
-  _attackSpeed: 1
+  _collectSpeed: 0
 --- !u!114 &678048746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 678048745}
-        m_MethodName: AttackEventListener
+        m_MethodName: HitEventListener
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -262,6 +262,7 @@ MonoBehaviour:
     type: 2}
   _animationEvent: {fileID: 2459453852883621880}
   _animator: {fileID: 707358919891469129}
+  _buildSpeed: 0
 --- !u!114 &678048748
 MonoBehaviour:
   m_ObjectHideFlags: 0

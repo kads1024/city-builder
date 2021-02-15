@@ -47,7 +47,7 @@ public class SelectedUnitsController : MonoBehaviour
                 foreach (GameObject unit in _selectedUnits.Selectables.Values)
                 {
                     // Must have a attack component
-                    Attack attack = unit.GetComponent<Attack>();
+                    ResourceCollector attack = unit.GetComponent<ResourceCollector>();
                     if (!attack)
                     {
                         Debug.LogError("MISSING ATTACK COMPONENT FOR " + unit.name);

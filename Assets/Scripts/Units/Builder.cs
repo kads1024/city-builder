@@ -21,10 +21,19 @@ public class Builder : MonoBehaviour
     // Animator to be used 
     [SerializeField] private Animator _animator;
 
+    // Build per second
+    [SerializeField] private float _buildSpeed;
+
     private void Awake()
     {
         _movement = GetComponent<Movement>();
         _playerTask = GetComponent<TaskManager>();
+    }
+
+    private void Start()
+    {
+        // Calculate rate based of speed
+        _buildSpeed = 1f / _buildSpeed;
     }
 
     /// <summary>
@@ -65,7 +74,7 @@ public class Builder : MonoBehaviour
         // Build every Second until finished
         while (!_currentBuilding.IsFinished())
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(_buildSpeed);
             if (!_currentBuilding.IsFinished())
                 _animator.SetTrigger("Attack");
         }

@@ -15,6 +15,7 @@ public class Building : MonoBehaviour
     [Header("Building Parameters")]
     [SerializeField] private float _height;
     [SerializeField] private float _radius = 5;
+    [SerializeField] private Vector3 _positionOffset;
     private float _originalHeight;
 
     // The Building Object Itself
@@ -26,7 +27,6 @@ public class Building : MonoBehaviour
     [ColorUsage(true, true)]
     [SerializeField] private Color[] _stateColors;
     Cinemachine.CinemachineImpulseSource _impulseSource;
-
 
     private void Awake()
     {
@@ -108,12 +108,21 @@ public class Building : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets the offset position of the object
+    /// </summary>
+    /// <returns>The position offset of the object</returns>
+    public Vector3 GetPositionOffset()
+    {
+        return _positionOffest;
+    }
+
+    /// <summary>
     /// Visual to draw building area
     /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _radius);
+        Gizmos.DrawWireSphere(transform.position + _positionOffset, _radius);
 
         Gizmos.DrawLine(transform.position, transform.position + (transform.up * _height));
     }
