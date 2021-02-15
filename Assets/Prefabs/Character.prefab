@@ -168,7 +168,7 @@ NavMeshAgent:
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 500
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   _animationEvent: {fileID: 2459453852883621880}
   _collectEventToBeUsed: {fileID: 11400000, guid: 9b5d1aa4195be214d9c13482062a5896,
     type: 2}
-  _collectSpeed: 0
+  _collectSpeed: 5
 --- !u!114 &678048746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
     type: 2}
   _animationEvent: {fileID: 2459453852883621880}
   _animator: {fileID: 707358919891469129}
-  _buildSpeed: 0
+  _buildSpeed: 5
 --- !u!114 &678048748
 MonoBehaviour:
   m_ObjectHideFlags: 0
