@@ -4,10 +4,9 @@ using UnityEngine;
 /// <summary>
 /// Component to enable the player to attack an object. Must have a movement component so that player can go there first before attacking
 /// </summary>
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Movement), typeof(TaskManager))]
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private CoroutineVariable _playerTask;
     [SerializeField] private Animator _animator;
 
     [SerializeField] private AnimationEventListener _animationEvent;
@@ -17,10 +16,12 @@ public class Attack : MonoBehaviour
 
     private Damageable _target;
     private Movement _movement;
+    private TaskManager _playerTask;
 
     private void Awake()
     {
         _movement = GetComponent<Movement>();
+        _playerTask = GetComponent<TaskManager>();
     }
 
     private void Start()
@@ -31,10 +32,12 @@ public class Attack : MonoBehaviour
 
     public void AttackTarget(Damageable p_target)
     {
-        StopAttacking();
         _target = p_target;
 
-        _playerTask.SetValue(StartCoroutine(StartAttack()));
+        if (!_playerTask.HasPendingTask())
+        {
+            _playerTask.SetTask(StartCoroutine(StartAttack()));
+        }
     }
 
     private IEnumerator StartAttack()
@@ -55,22 +58,12 @@ public class Attack : MonoBehaviour
             }
         }
 
-        _playerTask.Value = null;    
+        _playerTask.ResetTask();
     }
 
     public void AttackEventListener()
     {
         if (_target)
             _target.Hit(10);
-    }
-
-    public void StopAttacking()
-    {
-        _target = null;
-        if (_playerTask.Value != null)
-        {
-            StopCoroutine(_playerTask.Value);
-        }
-            
     }
 }

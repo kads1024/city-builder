@@ -13,7 +13,7 @@ public class BuildingController : ScriptableObject
     [SerializeField] private ResourceManager _currentResources;
 
     // Current Task of the player
-    [SerializeField] private CoroutineVariable _playerTask;
+    //[SerializeField] private CoroutineVariable _playerTask;
 
     // List of all selected characters
     [SerializeField] private SelectableContainer _selectedCharacters;

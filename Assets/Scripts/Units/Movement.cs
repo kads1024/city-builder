@@ -4,11 +4,11 @@ using UnityEngine.AI;
 /// <summary>
 /// Movement Component - Must require A Navmesh Agent to properly work
 /// </summary>
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent), typeof(TaskManager))]
 public class Movement : MonoBehaviour
 {
     // We need to track the current Player's Task.
-    [SerializeField] private CoroutineVariable _playerTask;
+    private TaskManager _playerTask;
 
     // Components neededs
     [SerializeField] private Animator _animator;
@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _playerTask = GetComponent<TaskManager>();
     }
 
     private void Update()
@@ -31,11 +32,10 @@ public class Movement : MonoBehaviour
     /// <param name="destination">Destination to move to</param>
     public void SetDestination(Vector3 p_destination)
     {
-        if (_playerTask.Value != null)
+        if (!_playerTask.HasPendingTask())
         {
-            StopCoroutine(_playerTask.Value);
-        }
-        _agent.destination = p_destination;
+            _agent.destination = p_destination;
+        }       
     }
 
     /// <summary>
