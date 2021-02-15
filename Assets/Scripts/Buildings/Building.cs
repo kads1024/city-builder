@@ -6,12 +6,15 @@ using DG.Tweening;
 /// </summary>
 public class Building : MonoBehaviour
 {
+    // BuildingController to be used
+    [SerializeField] private BuildingController _buildingController;
+
     [Header("Building Info")]
     [SerializeField] private string _buildingName;
     [SerializeField] private Cost _resourceCost;
     [SerializeField] private float _totalWorkToComplete = 100f;
     private float _currentWork;
-
+    
     [Header("Building Parameters")]
     [SerializeField] private float _height;
     [SerializeField] private float _radius = 5;
@@ -19,6 +22,7 @@ public class Building : MonoBehaviour
     private float _originalHeight;
 
     // The Building Object Itself
+    private Rigidbody _rigidbody;
     private Transform _buildingTransform;
     private MeshRenderer _buildingRenderer;
     private bool _doneBuilding;
@@ -26,11 +30,13 @@ public class Building : MonoBehaviour
     // Visuals
     [ColorUsage(true, true)]
     [SerializeField] private Color[] _stateColors;
-    Cinemachine.CinemachineImpulseSource _impulseSource;
+    [SerializeField] private ParticleSystem _buildParticle;
+    private Cinemachine.CinemachineImpulseSource _impulseSource;
 
     private void Awake()
     {
         _impulseSource = GetComponent<Cinemachine.CinemachineImpulseSource>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -63,7 +69,7 @@ public class Building : MonoBehaviour
         // Visual effect for each build iteration
         _buildingTransform.DOComplete();
         _buildingTransform.DOShakeScale(.5f, .2f, 10, 90, true);
-        //BuildingManager.instance.PlayParticle(transform.position);
+        PlayParticle(transform.position);
     }
 
     /// <summary>
@@ -79,14 +85,31 @@ public class Building : MonoBehaviour
             _doneBuilding = true;
 
             // Flash the state color  for 0.1f seconds, then reset the color back after
-            _buildingRenderer.material.DOColor(_stateColors[1], "Color_D2F0A66D", .1f).
-                OnComplete(() => _buildingRenderer.material.DOColor(_stateColors[0], "Color_D2F0A66D", .5f));
+            _buildingRenderer.material.DOColor(_stateColors[1], Constants.EMISSION_COLOR, .1f).
+                OnComplete(() => _buildingRenderer.material.DOColor(_stateColors[0], Constants.EMISSION_COLOR, .5f));
 
             // Generate Impulse for camera if any
             if (_impulseSource)
                 _impulseSource.GenerateImpulse();
+
+            // Remove Rigid body if it has one
+            if (_rigidbody)
+                Destroy(_rigidbody);
         }
         return _currentWork >= _totalWorkToComplete;
+    }
+
+    /// <summary>
+    /// Used to play the particle while building
+    /// </summary>
+    /// <param name="p_position">The position where to place the particle</param>
+    private void PlayParticle(Vector3 p_position)
+    {
+        if (_buildParticle)
+        {
+            ParticleSystem particle = Instantiate(_buildParticle, p_position, Quaternion.identity);
+            Destroy(particle.gameObject, 0.3f);
+        }
     }
 
     /// <summary>

@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7855460039312600425}
-  - component: {fileID: 7855460039312600430}
   - component: {fileID: 7855460039312600431}
-  - component: {fileID: 7855460039312600428}
+  - component: {fileID: 7855460039312600430}
   - component: {fileID: -8541063213997520487}
+  - component: {fileID: 7855460039312600428}
+  - component: {fileID: 2270599980794772919}
+  - component: {fileID: 281118013225646357}
   m_Layer: 0
   m_Name: BuildingHotel
   m_TagString: Untagged
@@ -35,29 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7855460039312600430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7855460039312600424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83c16f90ccdcb2439840d4bf81acea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingName: Hotel
-  _resourceCost:
-    Resource: 0
-    Amount: 100
-  _totalWorkToComplete: 100
-  _height: 10
-  _radius: 6.47
-  _positionOffset: {x: 0, y: 3.45, z: -0.57}
-  _stateColors:
-  - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 1}
-  - {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
 --- !u!208 &7855460039312600431
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -74,6 +53,46 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.5, y: 0, z: -0.99}
   m_TimeToStationary: 0.5
+--- !u!114 &7855460039312600430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855460039312600424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a83c16f90ccdcb2439840d4bf81acea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingController: {fileID: 11400000, guid: b0f88390555869c498c59a91bcbdc093,
+    type: 2}
+  _buildingName: Hotel
+  _resourceCost:
+    Resource: 0
+    Amount: 100
+  _totalWorkToComplete: 100
+  _height: 10
+  _radius: 6.47
+  _positionOffset: {x: 0, y: 3.45, z: -0.57}
+  _stateColors:
+  - {r: 0.003921569, g: 0.003921569, b: 0.003921569, a: 1}
+  - {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
+  _buildParticle: {fileID: 7851518830807879698, guid: 8716510566006ba4089d287be4ec6d76,
+    type: 3}
+--- !u!114 &-8541063213997520487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855460039312600424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4648b5b8aa975c94a8586f04e4497aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObjectSet: {fileID: 11400000, guid: 9c4c2b4ee0a78244aa2b30b5cd5b2598, type: 2}
 --- !u!114 &7855460039312600428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,19 +135,35 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 1000
     m_PropagationSpeed: 343
---- !u!114 &-8541063213997520487
-MonoBehaviour:
+--- !u!65 &2270599980794772919
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7855460039312600424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4648b5b8aa975c94a8586f04e4497aa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameObjectSet: {fileID: 11400000, guid: 9c4c2b4ee0a78244aa2b30b5cd5b2598, type: 2}
+  serializedVersion: 2
+  m_Size: {x: 10.140716, y: 10.199308, z: 6.4307003}
+  m_Center: {x: 0.4687543, y: 4.2773857, z: -1.0696836}
+--- !u!54 &281118013225646357
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855460039312600424}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
 --- !u!1001 &7855460040369941662
 PrefabInstance:
   m_ObjectHideFlags: 0

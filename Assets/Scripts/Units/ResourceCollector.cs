@@ -70,11 +70,11 @@ public class ResourceCollector : MonoBehaviour
             // Move to the calculated destination
             _movement.SetDestination(jobPosition);
 
-            // Wait for the navmesh to load
-            yield return _movement.WaitForNavMeshToLoad();
-
             // Look at the destination when moving to the destination
             transform.LookAt(_targetResource.transform);
+
+            // Wait for the navmesh to load
+            yield return _movement.WaitForNavMeshToLoad();
 
             // Hit the resource while it is available and in range
             while (_targetResource && Vector3.Distance(_targetResource.transform.position, transform.position) < 4f)

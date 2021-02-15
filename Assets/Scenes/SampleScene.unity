@@ -1579,9 +1579,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: fc88972585c49cf4d8721a2ee9c3fe8c, type: 2}
+      - m_Target: {fileID: 11400000, guid: 37e1128899ad26141821733c83fe7856, type: 2}
         m_MethodName: Raise
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1758,6 +1758,8 @@ MonoBehaviour:
   _buildingController: {fileID: 11400000, guid: b0f88390555869c498c59a91bcbdc093,
     type: 2}
   _buildingPreviewMat: {fileID: 2100000, guid: 7d9e8fa642c18f44798494c034f5aa1b, type: 2}
+  _buildingInvalidPreviewMat: {fileID: 2100000, guid: 71b6258589e80f24a835e54806105183,
+    type: 2}
 --- !u!114 &2004553539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1767,16 +1769,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004553536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467560279b6ccb44af3d342e21b68e0, type: 3}
+  m_Script: {fileID: 11500000, guid: d0a7bd5c5add00947b7be171e9ccf464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: fc88972585c49cf4d8721a2ee9c3fe8c, type: 2}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _event: {fileID: 11400000, guid: 37e1128899ad26141821733c83fe7856, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2004553538}
         m_MethodName: SelectBuilding
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

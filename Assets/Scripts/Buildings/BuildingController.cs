@@ -18,9 +18,6 @@ public class BuildingController : ScriptableObject
     // List of all selected characters
     [SerializeField] private SelectableContainer _selectedCharacters;
 
-    // Visual
-    [SerializeField] private ParticleSystem _finishParticle;
-
     /// <summary>
     /// Gets the prefab of a certain building
     /// </summary>
@@ -29,19 +26,6 @@ public class BuildingController : ScriptableObject
     public Building GetPrefab(BuildingType p_building)
     {
         return _buildingContainer.Buildings[p_building];
-    }
-
-    /// <summary>
-    /// Visual effect for when the building has finished building
-    /// </summary>
-    /// <param name="p_position">Position on where to play the particle</param>
-    public void PlayParticle(Vector3 p_position)
-    {
-        if (_finishParticle)
-        {
-            ParticleSystem particle = Instantiate(_finishParticle, p_position, Quaternion.identity);
-            Destroy(particle.gameObject, 0.3f);
-        }
     }
 
     /// <summary>

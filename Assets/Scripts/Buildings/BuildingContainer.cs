@@ -14,6 +14,7 @@ public class BuildingContainer : SerializedScriptableObject
     public Dictionary<BuildingType, Building> Buildings = new Dictionary<BuildingType, Building>();
 }
 
+[System.Serializable]
 public enum BuildingType
 {
     Hotel,
