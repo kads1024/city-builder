@@ -32,6 +32,7 @@ public class SelectionController : MonoBehaviour
 
     // The vertices of our mesh collider
     private Vector3[] _vertices;
+    private Vector3[] _origin;
 
     private void Awake()
     {
@@ -98,6 +99,7 @@ public class SelectionController : MonoBehaviour
             else // If you click while dragging, grab all units that were selected
             {
                 _vertices = new Vector3[4];
+                _origin = new Vector3[4];
                 _mouseEndPosition = Input.mousePosition;
                 _corners = GetBoundingBox(_mouseStartPosition, _mouseEndPosition);
 
@@ -107,14 +109,15 @@ public class SelectionController : MonoBehaviour
                     Ray ray = _camera.ScreenPointToRay(corner);
                     if (Physics.Raycast(ray, out RaycastHit hit, 50000.0f, LayerMask.GetMask("Ground")))
                     {
-                        _vertices[i] = new Vector3(hit.point.x, 0.0f, hit.point.z);
+                        _vertices[i] = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                        _origin[i] = ray.origin - hit.point;
                         Debug.DrawLine(_camera.ScreenToWorldPoint(corner), hit.point, Color.red, 1.0f);
                     }
                     i++;
                 }
 
                 // Generate the mesh
-                _selectionMesh = GenerateSelectionMesh(_vertices);
+                _selectionMesh = GenerateSelectionMesh(_vertices, _origin);
 
                 _selectionBox = gameObject.AddComponent<MeshCollider>();
                 _selectionBox.sharedMesh = _selectionMesh;
@@ -188,7 +191,7 @@ public class SelectionController : MonoBehaviour
     }
 
     // Generate a mesh from the 4 bottom points
-    private Mesh GenerateSelectionMesh(Vector3[] p_corners)
+    private Mesh GenerateSelectionMesh(Vector3[] p_corners, Vector3[] p_origin)
     {
         Vector3[] vertices = new Vector3[8];
         int[] triangles = {
@@ -219,7 +222,7 @@ public class SelectionController : MonoBehaviour
         // Top Rectangle
         for (int j = 4; j < 8; j++)
         {
-            vertices[j] = p_corners[j - 4] + Vector3.up * 100.0f;
+            vertices[j] = p_corners[j - 4] + p_origin[j - 4];
         }
 
         // Generated Mesh
