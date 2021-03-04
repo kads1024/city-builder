@@ -18,4 +18,5 @@ public class BuildingContainer : SerializedScriptableObject
 public enum BuildingType
 {
     Hotel,
+    WoodStorage,
 }

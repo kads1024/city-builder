@@ -11,6 +11,7 @@ public class BuildingUI : MonoBehaviour
 
     private bool _isPlacing = false;
     private bool _isValidLocation = true;
+    private BuildingType _buildingToBeBuilt;
 
     // Building preview
     private Mesh _buildingPreviewMesh;
@@ -25,7 +26,7 @@ public class BuildingUI : MonoBehaviour
             Vector3 position = Utility.MouseToTerrainPosition();
 
             // Get All Overlapping objects within the Sphere
-            Collider[] colliders = Physics.OverlapSphere(position, _buildingController.GetPrefab(BuildingType.Hotel).GetRadius());
+            Collider[] colliders = Physics.OverlapSphere(position, _buildingController.GetPrefab(_buildingToBeBuilt).GetRadius());
             // Check if there is objects colliding with the sphere other than the ground
             _isValidLocation = colliders.Length <= 1;  
 
@@ -36,7 +37,7 @@ public class BuildingUI : MonoBehaviour
             if (_input.OnSelectionClick())
             {
                 if(_isValidLocation)   
-                    _buildingController.SpawnBuilding(BuildingType.Hotel, position);
+                    _buildingController.SpawnBuilding(_buildingToBeBuilt, position);
                      
                 _isPlacing = false;
             }
@@ -55,5 +56,6 @@ public class BuildingUI : MonoBehaviour
     {
         _isPlacing = true;
         _buildingPreviewMesh = _buildingController.GetPrefab(p_building).GetComponentInChildren<MeshFilter>().sharedMesh;
+        _buildingToBeBuilt = p_building;
     }
 }

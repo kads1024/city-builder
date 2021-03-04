@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 /// <summary>
 /// The component of the object that will be considered as a building
@@ -33,10 +34,14 @@ public class Building : MonoBehaviour
     [SerializeField] private ParticleSystem _buildParticle;
     private Cinemachine.CinemachineImpulseSource _impulseSource;
 
+    // Events to be fired when the building has finished constructing
+    private UnityEvent _onFinishBuild;
+
     private void Awake()
     {
         _impulseSource = GetComponent<Cinemachine.CinemachineImpulseSource>();
         _rigidbody = GetComponent<Rigidbody>();
+        _onFinishBuild = new UnityEvent();
     }
 
     void Start()
@@ -95,6 +100,9 @@ public class Building : MonoBehaviour
             // Remove Rigid body if it has one
             if (_rigidbody)
                 Destroy(_rigidbody);
+
+            // Fires the on finish build event
+            _onFinishBuild.Invoke();
         }
         return _currentWork >= _totalWorkToComplete;
     }
@@ -137,6 +145,24 @@ public class Building : MonoBehaviour
     public Vector3 GetPositionOffset()
     {
         return _positionOffset;
+    }
+
+    /// <summary>
+    /// Register a listener to the on finish building event
+    /// </summary>
+    /// <param name="p_callback">The Call back to be registered</param>
+    public void RegisterOnFinishListener(UnityAction p_callback)
+    {
+        _onFinishBuild.AddListener(p_callback);
+    }
+
+    /// <summary>
+    /// Unregisters a listener to the on finish building event
+    /// </summary>
+    /// <param name="p_callback">The Call back to be removed</param>
+    public void UnregisterOnFinishListener(UnityAction p_callback)
+    {
+        _onFinishBuild.RemoveListener(p_callback);
     }
 
     /// <summary>
