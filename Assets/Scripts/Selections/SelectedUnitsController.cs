@@ -54,7 +54,7 @@ public class SelectedUnitsController : MonoBehaviour
                     }
                     else // then let the character move
                     {
-                        attack.AttackTarget(hitObject.GetComponent<Damageable>());
+                        attack.CollectTarget(hitObject.GetComponent<Damageable>());
                     }
                 }
             }

@@ -17,6 +17,9 @@ public class ResourceCollector : MonoBehaviour
     // Hits per second
     [SerializeField] private float _collectSpeed;
 
+    // Current Resources of the player
+    [SerializeField] private ResourceManager _resources;
+
     // Required Component
     private Damageable _targetResource;
     private Movement _movement;
@@ -38,16 +41,22 @@ public class ResourceCollector : MonoBehaviour
     /// Moves to the resource to collect it
     /// </summary>
     /// <param name="p_targetResource">Resource to be Collected</param>
-    public void AttackTarget(Damageable p_targetResource)
+    public void CollectTarget(Damageable p_targetResource)
     {
         // Set the target resource
         _targetResource = p_targetResource;
 
-        // only attack the target if  there is no pending task
-        if (!_playerTask.HasPendingTask())
+        Resource resource = _targetResource.GetComponent<Resource>();
+
+        // Check if the target is a valid Resource
+        if(resource)
         {
-            _playerTask.SetTask(StartCoroutine(StartCollecting()));
-        }
+            // only attack the target if  there is no pending task and has enough storage to put the resource
+            if (!_playerTask.HasPendingTask() && _resources.HasEnoughStorage(resource.GetCost().Resource, resource.GetCost().Amount))
+            {
+                _playerTask.SetTask(StartCoroutine(StartCollecting()));
+            }
+        }   
     }
 
     /// <summary>

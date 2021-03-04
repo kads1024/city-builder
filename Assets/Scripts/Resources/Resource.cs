@@ -26,4 +26,9 @@ public class Resource : MonoBehaviour
     {
         _resourceManager.AddResource(_resourceGained);
     }
+
+    public Cost GetCost()
+    {
+        return _resourceGained;
+    }
 }
