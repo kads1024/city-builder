@@ -7,30 +7,59 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private string _seed = "";
     [SerializeField] private float _resourceRadius = 1f;
     [SerializeField] private Vector2 _regionSize = Vector2.one;
-    [SerializeField] private Vector2 _regionoffset = Vector2.one;
+    [SerializeField] private Vector3 _regionoffset = Vector3.one;
     [SerializeField] private int _rejectionCount = 30;
     [SerializeField] private float _displayRadius = 1f;
 
     private List<Vector2> _points;
 
+    private List<Vector3> _resourcePositions;
+
+    [SerializeField] private Transform _tree;
+    [SerializeField] private LayerMask _ground;
+
     private void Start()
     {
         PoissonDiscSampling.Init(_seed);
         _points = PoissonDiscSampling.GeneratePoints(_resourceRadius, _regionSize, _rejectionCount);
+
+        _resourcePositions = new List<Vector3>();
+
+        if (_points != null)
+        {
+            foreach (Vector2 point in _points)
+            {
+                _resourcePositions.Add(new Vector3(point.x, 1f, point.y) + _regionoffset);
+            }
+            _points.Clear();
+        }
+
+        if (_resourcePositions != null)
+        {
+            foreach (Vector3 point in _resourcePositions)
+            {
+                Ray ray = new Ray(point, Vector3.down);
+                RaycastHit hit;
+
+                if(Physics.Raycast(ray, out hit, 100, _ground))
+                {
+                    Instantiate(_tree, hit.point, Quaternion.identity);
+                }
+            }
+        }
     }
 
     private void OnDrawGizmos()
     {
         Vector3 terrainRegion = new Vector3(_regionSize.x, 0f, _regionSize.y);
-        Vector3 terrainRegionOffset = new Vector3(_regionoffset.x, 0f, _regionoffset.y);
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((terrainRegion / 2f) + terrainRegionOffset, terrainRegion);
-        if (_points != null)
+        Gizmos.DrawWireCube((terrainRegion / 2f) + _regionoffset, terrainRegion);
+        if (_resourcePositions != null)
         {
-            foreach (Vector2 point in _points)
+            foreach (Vector3 point in _resourcePositions)
             {
-                Vector3 terrainPoints = new Vector3(point.x, 1f, point.y) + terrainRegionOffset;
-                Gizmos.DrawSphere(terrainPoints, _displayRadius);
+                //Gizmos.DrawSphere(point, _displayRadius);
             }
         }
     }
