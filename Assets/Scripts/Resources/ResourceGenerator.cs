@@ -15,7 +15,7 @@ public class ResourceGenerator : MonoBehaviour
 
     private List<Vector3> _resourcePositions;
 
-    [SerializeField] private Transform _tree;
+    [SerializeField] private List<Transform> _objectsToBeGenerated;
     [SerializeField] private LayerMask _ground;
 
     private void Start()
@@ -43,24 +43,35 @@ public class ResourceGenerator : MonoBehaviour
 
                 if(Physics.Raycast(ray, out hit, 100, _ground))
                 {
-                    Instantiate(_tree, hit.point, Quaternion.identity);
+                    float randomChance = Random.value;
+                    float percentage = 1f / _objectsToBeGenerated.Count;
+                    float currentPercentage = 0.0f;
+                    for(int i = 0; i < _objectsToBeGenerated.Count; i++)
+                    {
+                        if(currentPercentage >= randomChance)
+                        {
+                            Instantiate(_objectsToBeGenerated[i], hit.point, Quaternion.identity);
+                            break;
+                        }
+                        currentPercentage += percentage;
+                    }
                 }
             }
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector3 terrainRegion = new Vector3(_regionSize.x, 0f, _regionSize.y);
+    //private void OnDrawGizmos()
+    //{
+    //    Vector3 terrainRegion = new Vector3(_regionSize.x, 0f, _regionSize.y);
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((terrainRegion / 2f) + _regionoffset, terrainRegion);
-        if (_resourcePositions != null)
-        {
-            foreach (Vector3 point in _resourcePositions)
-            {
-                //Gizmos.DrawSphere(point, _displayRadius);
-            }
-        }
-    }
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireCube((terrainRegion / 2f) + _regionoffset, terrainRegion);
+    //    if (_resourcePositions != null)
+    //    {
+    //        foreach (Vector3 point in _resourcePositions)
+    //        {
+    //            //Gizmos.DrawSphere(point, _displayRadius);
+    //        }
+    //    }
+    //}
 }
