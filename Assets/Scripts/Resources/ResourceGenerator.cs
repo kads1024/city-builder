@@ -50,7 +50,7 @@ public class ResourceGenerator : MonoBehaviour
                     {
                         if(currentPercentage >= randomChance)
                         {
-                            Instantiate(_objectsToBeGenerated[i], hit.point, Quaternion.identity);
+                            Instantiate(_objectsToBeGenerated[i], hit.point, Quaternion.identity, transform);
                             break;
                         }
                         currentPercentage += percentage;
