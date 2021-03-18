@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Cinemachine;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private PlayerInput _input;
+    [SerializeField] private CinemachineVirtualCamera _minimapCamera;
 
     [Header("Speed Values")]
     [SerializeField] private float _moveSpeed;
@@ -61,6 +61,8 @@ public class CameraController : MonoBehaviour
     {
         float scrollInput = _input.MouseScroll();
 
+        _minimapCamera.m_Lens.OrthographicSize -= scrollInput * _zoomSpeed * 0.9f;
+        _minimapCamera.m_Lens.OrthographicSize = Mathf.Clamp(_minimapCamera.m_Lens.OrthographicSize, 11.6f, 27.8f);
         _zoomObject.localPosition += new Vector3(0, 0, -scrollInput * _zoomSpeed);
         _zoomObject.localPosition = new Vector3(_zoomObject.localPosition.x, _zoomObject.localPosition.y, Mathf.Clamp(_zoomObject.localPosition.z, _minZoomDistance, _maxZoomDistance));
     }

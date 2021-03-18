@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96259b35a09c4da44b806853f3236268, type: 3}
   m_Name: DefaultSelectedObjects
   m_EditorClassIdentifier: 
+  _limit: 5

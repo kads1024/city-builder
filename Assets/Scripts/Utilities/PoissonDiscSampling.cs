@@ -66,18 +66,32 @@ public static class PoissonDiscSampling
         return points;
     }
 
+    /// <summary>
+    /// Checks if the current point is a valid point to be generated
+    /// </summary>
+    /// <param name="p_candidate">The Point to check</param>
+    /// <param name="p_regionSize">The size of the region</param>
+    /// <param name="p_cellSize">The Size of the indivudual cell</param>
+    /// <param name="p_radius">Radius of the point</param>
+    /// <param name="p_points">The List of points already generated</param>
+    /// <param name="p_grid">The Grid that will be used</param>
+    /// <returns></returns>
     private static bool IsValid(Vector2 p_candidate, Vector2 p_regionSize, float p_cellSize, float p_radius, List<Vector2> p_points, int[,] p_grid)
     {
+        // Check if the point is within the map
         if(p_candidate.x >= 0 && p_candidate.x < p_regionSize.x && p_candidate.y >= 0 && p_candidate.y < p_regionSize.y)
         {
+            // Calculate the search points x value
             int cellX = (int)(p_candidate.x / p_cellSize);
             int searchStartX = Mathf.Max(0, cellX - 2);
             int searchEndX = Mathf.Min(cellX + 2, p_grid.GetLength(0) - 1);
 
+            // Calculate the search points y value
             int cellY = (int)(p_candidate.y / p_cellSize);
             int searchStartY = Mathf.Max(0, cellY - 2);
             int searchEndY = Mathf.Min(cellY + 2, p_grid.GetLength(1) - 1);
 
+            // Start Searching for a valid point in the area
             for (int x = searchStartX; x <= searchEndX; x++)
             {
                 for (int y = searchStartY; y <= searchEndY; y++)
@@ -95,6 +109,8 @@ public static class PoissonDiscSampling
             }
             return true;
         }
+
+        // If not, then it is not valid
         return false;
     }
 }

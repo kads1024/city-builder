@@ -12,6 +12,9 @@ public class SelectableContainer : ScriptableObject
     /// </summary>
     public Dictionary<int, GameObject> Selectables = new Dictionary<int, GameObject>();
 
+    // Limit of how many units can be selected at a time
+    [SerializeField] private int _limit;
+
     /// <summary>
     /// Add a certain item to the dictionary
     /// </summary>
@@ -19,8 +22,7 @@ public class SelectableContainer : ScriptableObject
     public void Add(GameObject p_objectToBeAdded)
     {
         int id = p_objectToBeAdded.GetInstanceID();
-
-        if (!(Selectables.ContainsKey(id)))
+        if (!(Selectables.ContainsKey(id)) && Selectables.Count < _limit)
         {
             Selectables.Add(id, p_objectToBeAdded);
             p_objectToBeAdded.AddComponent<SelectedObject>();
