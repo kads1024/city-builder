@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: 530aecd67ae4cdb4d93b92a737745615
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3950484053920505880
+    second: YellowUI_0
+  - first:
+      213: 4944197265765883317
+    second: YellowUI_1
+  - first:
+      213: -2237322885681938345
+    second: YellowUI_2
+  - first:
+      213: -4196697188957651674
+    second: YellowUI_3
+  - first:
+      213: 6678830537906610094
+    second: YellowUI_4
+  - first:
+      213: -3504079006540837948
+    second: YellowUI_5
+  - first:
+      213: -3301742144236295556
+    second: YellowUI_6
+  - first:
+      213: 4771964434052208965
+    second: YellowUI_7
+  - first:
+      213: -4316589014883966129
+    second: YellowUI_8
+  - first:
+      213: -64415993702611605
+    second: YellowUI_9
+  - first:
+      213: 4104432269259985179
+    second: YellowUI_10
+  - first:
+      213: 8142936013892523508
+    second: YellowUI_11
+  - first:
+      213: 2098004164466821
+    second: YellowUI_12
+  - first:
+      213: 7214025878959724475
+    second: YellowUI_13
+  - first:
+      213: -8800423757585592172
+    second: YellowUI_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: YellowUI_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 3340
+        width: 2055
+        height: 1542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef193bfeaf0d29c0800000000000000
+      internalID: -3950484053920505880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_1
+      rect:
+        serializedVersion: 2
+        x: 2487
+        y: 4313
+        width: 1416
+        height: 437
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdde6db7315d9440800000000000000
+      internalID: 4944197265765883317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_2
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 3744
+        width: 756
+        height: 771
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750831770be63f0e0800000000000000
+      internalID: -2237322885681938345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_3
+      rect:
+        serializedVersion: 2
+        x: 2489
+        y: 3693
+        width: 1411
+        height: 481
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d7c46442652c5c0800000000000000
+      internalID: -4196697188957651674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_4
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1373
+        width: 1909
+        height: 1822
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf54fefcf8ffac50800000000000000
+      internalID: 6678830537906610094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_5
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 3114
+        width: 1252
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cbca3e75b20f5fc0800000000000000
+      internalID: -3504079006540837948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_6
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 2816
+        width: 756
+        height: 774
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7aebd0630bdd22d0800000000000000
+      internalID: -3301742144236295556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_7
+      rect:
+        serializedVersion: 2
+        x: 2491
+        y: 2279
+        width: 1504
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549da7cae5c693240800000000000000
+      internalID: 4771964434052208965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_8
+      rect:
+        serializedVersion: 2
+        x: 4066
+        y: 1942
+        width: 825
+        height: 708
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43ec7649256814c0800000000000000
+      internalID: -4316589014883966129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_9
+      rect:
+        serializedVersion: 2
+        x: 2552
+        y: 1483
+        width: 1409
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b658089bef52b1ff0800000000000000
+      internalID: -64415993702611605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_10
+      rect:
+        serializedVersion: 2
+        x: 4061
+        y: 985
+        width: 838
+        height: 691
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1154e5176fd5f830800000000000000
+      internalID: 4104432269259985179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 900
+        width: 2019
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f59cc85925810170800000000000000
+      internalID: 8142936013892523508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_12
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 719
+        width: 1411
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588d5f8af14770000800000000000000
+      internalID: 2098004164466821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_13
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 709
+        width: 2019
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb79edbb05e5d1460800000000000000
+      internalID: 7214025878959724475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YellowUI_14
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 438
+        width: 2019
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490d338183d9ed580800000000000000
+      internalID: -8800423757585592172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 600aa015e0e024649bce4fba31026d01
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
