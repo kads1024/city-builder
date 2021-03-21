@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Acts as a bridge to animation events
@@ -7,7 +8,7 @@ public class AnimationEventListener : MonoBehaviour
 {
     // List of animation events to call when an animation event is called
     [SerializeField] private GameEvent _footStepEvent;
-    [SerializeField] private GameEvent _attackEvent;
+    [SerializeField] private UnityEvent _attackEvent;
 
     public void FootstepEvent()
     {
@@ -16,11 +17,12 @@ public class AnimationEventListener : MonoBehaviour
 
     public void AttackEvent()
     {
-        _attackEvent.Raise();
+        _attackEvent.Invoke();
     }
 
-    public void SetAttackEvent(GameEvent p_event)
+    public void SetAttackEvent(UnityAction p_event)
     {
-        _attackEvent = p_event;
+        _attackEvent.RemoveAllListeners();
+        _attackEvent.AddListener(p_event);
     }
 }

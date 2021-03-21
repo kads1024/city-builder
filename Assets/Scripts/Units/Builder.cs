@@ -53,7 +53,7 @@ public class Builder : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartJob()
     {
-        _animationEvent.SetAttackEvent(_buildEventToBeUsed);
+        _animationEvent.SetAttackEvent(DoWork);
 
         // Calculate where to go to when bulding a building
         Vector3 jobPosition = _currentBuilding.transform.position;

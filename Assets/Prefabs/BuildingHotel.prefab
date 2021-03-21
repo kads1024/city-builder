@@ -182,7 +182,7 @@ MonoBehaviour:
   _resourceManager: {fileID: 11400000, guid: 94c228f4a3ed52645b4d2fff6f42440a, type: 2}
   _storageAmount:
     Resource: 3
-    Amount: 5
+    Amount: 10
 --- !u!1001 &7855460040369941662
 PrefabInstance:
   m_ObjectHideFlags: 0

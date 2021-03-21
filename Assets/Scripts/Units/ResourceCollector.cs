@@ -64,7 +64,7 @@ public class ResourceCollector : MonoBehaviour
     /// </summary>
     private IEnumerator StartCollecting()
     {
-        _animationEvent.SetAttackEvent(_collectEventToBeUsed);
+        _animationEvent.SetAttackEvent(HitEventListener);
 
         // Recalculate movement when there is still a resorce but out of range
         while (_targetResource)
