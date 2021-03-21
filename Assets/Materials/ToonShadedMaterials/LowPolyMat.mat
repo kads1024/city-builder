@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeMat
+  m_Name: LowPolyMat
   m_Shader: {fileID: -6465566751694194690, guid: 7f79bbcb91917d34fb3d2d611153cee2,
     type: 3}
   m_ShaderKeywords: 

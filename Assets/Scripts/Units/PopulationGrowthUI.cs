@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,7 @@ public class PopulationGrowthUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _populationGrowthText;
     [SerializeField] private Image _populationBar;
     [SerializeField] private Image _timerBar;
+    [SerializeField] private List<TextMeshProUGUI> _warnings;
 
     private float _timer;
 
@@ -38,6 +40,16 @@ public class PopulationGrowthUI : MonoBehaviour
         _populationGrowthText.text = "Population Growth:\n" + _populationManager.SpawnAmount.ToString();
         _timer -= Time.deltaTime;
 
+        if(_populationManager.AboutToOverflow)
+        {
+            _warnings[0].gameObject.SetActive(false);
+            _warnings[1].gameObject.SetActive(true);
+        }
+        else
+        {
+            _warnings[0].gameObject.SetActive(true);
+            _warnings[1].gameObject.SetActive(false);
+        }
         if (_timer <= 0.0f)
         {
             _timer = _populationManager.SpawnRate;

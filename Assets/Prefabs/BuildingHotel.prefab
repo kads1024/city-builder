@@ -70,9 +70,11 @@ MonoBehaviour:
     type: 2}
   _buildingName: Hotel
   _resourceCost:
-    Resource: 0
-    Amount: 100
-  _totalWorkToComplete: 1000
+  - Resource: 0
+    Amount: 300
+  - Resource: 1
+    Amount: 300
+  _totalWorkToComplete: 250
   _height: 10
   _radius: 6.47
   _positionOffset: {x: 0, y: 3.45, z: -0.57}

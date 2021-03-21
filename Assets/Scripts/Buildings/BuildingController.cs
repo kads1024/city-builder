@@ -37,9 +37,13 @@ public class BuildingController : ScriptableObject
     {
         Building building = _buildingContainer.Buildings[p_building];
 
+        foreach(Cost buildCost in building.GetCost())
+        {
+            if (!_currentResources.HasEnoughResource(buildCost.Resource, buildCost.Amount))
+                return;
+        }
         // Check if have enough resources
-        if (!_currentResources.HasEnoughResource(building.GetCost().Resource, building.GetCost().Amount))
-            return;
+        
 
         // Check if there are selected characters
         if (_selectedCharacters.Selectables.Count <= 0)
@@ -57,7 +61,10 @@ public class BuildingController : ScriptableObject
         }
 
         // Subtract resources
-        Cost cost = building.GetCost();
-        _currentResources.DeductResource(cost);
+        foreach(Cost buildCost in building.GetCost())
+        {
+            Cost cost = buildCost;
+            _currentResources.DeductResource(cost);
+        }     
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 /// <summary>
 /// The component of the object that will be considered as a building
@@ -12,7 +13,7 @@ public class Building : MonoBehaviour
 
     [Header("Building Info")]
     [SerializeField] private string _buildingName;
-    [SerializeField] private Cost _resourceCost;
+    [SerializeField] private List<Cost> _resourceCost;
     [SerializeField] private float _totalWorkToComplete = 100f;
     private float _currentWork;
     
@@ -124,7 +125,7 @@ public class Building : MonoBehaviour
     /// Since the cost is a private variable, we still need to have access to it
     /// </summary>
     /// <returns>The cost of this building  </returns>
-    public Cost GetCost()
+    public List<Cost> GetCost()
     {
         return _resourceCost;
     }
