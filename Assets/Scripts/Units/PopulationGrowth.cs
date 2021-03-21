@@ -18,10 +18,17 @@ public class PopulationGrowth : MonoBehaviour
     // Count of Builders Present
     [SerializeField] private ResourceManager m_resources;
 
+    public float SpawnRate => _spawnRate;
+
+    public float CurrentTime { get; private set; }
+    public int SpawnAmount { get; private set; }
     // Start is called before the first frame update
     private void Start()
     {
+        CurrentTime = 0.0f;
+        SpawnAmount = 1;
         StartCoroutine(SpawnBuilders());
+
     }
 
     /// <summary>
@@ -29,16 +36,20 @@ public class PopulationGrowth : MonoBehaviour
     /// </summary>
     private IEnumerator SpawnBuilders()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(_spawnRate);
+         
+            for (int i = 0; i < SpawnAmount; i++)
+            {
+                float randomX = _spawnArea.transform.position.x + Random.Range(-_spawnArea.Radius + 1, _spawnArea.Radius - 1);
+                float randomZ = _spawnArea.transform.position.y + Random.Range(-_spawnArea.Radius + 1, _spawnArea.Radius - 1);
 
-            float randomX = _spawnArea.transform.position.x + Random.Range(0.0f, _spawnArea.Radius);
-            float randomZ = _spawnArea.transform.position.y + Random.Range(0.0f, _spawnArea.Radius);
-
-            Vector3 randomPosition = new Vector3(randomX, 1f, randomZ);
-            Instantiate(_builder, randomPosition, Quaternion.identity);
-            m_resources.AddResource(new Cost() { Resource = ResourceType.Person, Amount = 1 });
-        }  
+                Vector3 randomPosition = new Vector3(randomX, 1f, randomZ);
+                Instantiate(_builder, randomPosition, Quaternion.identity);
+                m_resources.AddResource(new Cost() { Resource = ResourceType.Person, Amount = 1 });
+            }
+            SpawnAmount++;
+        }
     }
 }
