@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: 4848372fd50ce75498a79928f83b9d8f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8657836034111300436
+    second: Description Box_0
+  - first:
+      213: -6867621232258780213
+    second: Description Box_1
+  - first:
+      213: 5624797639537795833
+    second: Description Box_2
+  - first:
+      213: 1256228331777770528
+    second: Description Box_3
+  - first:
+      213: 2311067782533138985
+    second: Description Box_4
+  - first:
+      213: 2726751145051114213
+    second: Description Box_5
+  - first:
+      213: 1308707541235126901
+    second: Description Box_6
+  - first:
+      213: 7088773087644982201
+    second: Description Box_7
+  - first:
+      213: -7500444710742007547
+    second: Description Box_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -34,9 +61,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -70,10 +97,211 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Description Box_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453e7c87000d62870800000000000000
+      internalID: 8657836034111300436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 66
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3f84f10ee41b0a0800000000000000
+      internalID: -6867621232258780213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_2
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 66
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f22b16d6ab4f0e40800000000000000
+      internalID: 5624797639537795833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024456013050f6110800000000000000
+      internalID: 1256228331777770528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_4
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 33
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92accb557ef821020800000000000000
+      internalID: 2311067782533138985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_5
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 33
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea49af28bd57d520800000000000000
+      internalID: 2726751145051114213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572d13e2396792210800000000000000
+      internalID: 1308707541235126901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb9d66b091606260800000000000000
+      internalID: 7088773087644982201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Description Box_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 126.333336
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501e3ce464119e790800000000000000
+      internalID: -7500444710742007547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

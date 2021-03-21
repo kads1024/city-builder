@@ -11,7 +11,9 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     public void OpenGameOverScreen()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(Constants.GAME_OVER_SCENE);
+        
     }
 
     /// <summary>
@@ -19,6 +21,7 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     public void OpenMainGameScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(Constants.MAIN_GAME_SCENE);
     }
 
@@ -27,6 +30,7 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     public void OpenMainMenuScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
     }
 

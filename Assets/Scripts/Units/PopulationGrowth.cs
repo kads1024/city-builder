@@ -18,6 +18,8 @@ public class PopulationGrowth : MonoBehaviour
     // Count of Builders Present
     [SerializeField] private ResourceManager m_resources;
 
+    [SerializeField] private SceneTransition m_sceneTransition;
+    [SerializeField] private FloatReference m_timeSpent;
     public float SpawnRate => _spawnRate;
 
     public float CurrentTime { get; private set; }
@@ -33,6 +35,7 @@ public class PopulationGrowth : MonoBehaviour
         StartCoroutine(SpawnBuilders());
         AboutToOverflow = false;
         Overflowed = false;
+        m_timeSpent.SetVariableValue(0.0f);
     }
 
     /// <summary>
@@ -54,17 +57,30 @@ public class PopulationGrowth : MonoBehaviour
                 Instantiate(_builder, randomPosition, Quaternion.identity);
                 m_resources.AddResource(new Cost() { Resource = ResourceType.Person, Amount = 1 });
             }
-            SpawnAmount++;            
+            SpawnAmount++;
+            if (m_resources.CurrentResources[ResourceType.Person] >= m_resources.CurrentResourceLimit[ResourceType.Person])
+            {
+                Overflowed = true;
+
+                // TODO: Game Over
+                m_sceneTransition.OpenGameOverScreen();
+            }
+            else
+            {
+                Overflowed = false;
+            }
         }
     }
 
     private void Update()
     {
+        m_timeSpent.SetVariableValue(m_timeSpent.Value + Time.deltaTime);
         if (m_resources.CurrentResources[ResourceType.Person] >= m_resources.CurrentResourceLimit[ResourceType.Person])
         {
             Overflowed = true;
 
             // TODO: Game Over
+            m_sceneTransition.OpenGameOverScreen();
         }
         else
         {
