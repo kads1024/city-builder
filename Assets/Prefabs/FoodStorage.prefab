@@ -150,8 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceManager: {fileID: 11400000, guid: 94c228f4a3ed52645b4d2fff6f42440a, type: 2}
   _storageAmount:
-    Resource: 1
-    Amount: 100
+    Resource: 2
+    Amount: 10
 --- !u!65 &447821077838689190
 BoxCollider:
   m_ObjectHideFlags: 0

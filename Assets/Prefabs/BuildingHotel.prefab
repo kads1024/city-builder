@@ -71,9 +71,9 @@ MonoBehaviour:
   _buildingName: Hotel
   _resourceCost:
   - Resource: 0
-    Amount: 300
+    Amount: 100
   - Resource: 1
-    Amount: 300
+    Amount: 100
   _totalWorkToComplete: 250
   _height: 10
   _radius: 6.47
