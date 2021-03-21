@@ -343,7 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dba087db2aba5146a6915056788309c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _seed: Kenny
+  _seed:
+    _useConstant: 0
+    _constantValue: 
+    _variable: {fileID: 11400000, guid: 73fe636973fd2964cb630c5425fcb4ec, type: 2}
   _resourceRadius: 5
   _regionSize: {x: 2000, y: 2000}
   _regionoffset: {x: -1000, y: 1, z: -1000}

@@ -7,7 +7,7 @@ using UnityEngine;
 public class ResourceGenerator : MonoBehaviour
 {
     // Seed to use in game
-    [SerializeField] private string _seed = "";
+    [SerializeField] private StringReference _seed;
 
     // Radius of each resource
     [SerializeField] private float _resourceRadius = 1f;
@@ -37,7 +37,7 @@ public class ResourceGenerator : MonoBehaviour
     private void Start()
     {
         // Initialize the Point Generator
-        PoissonDiscSampling.Init(_seed);
+        PoissonDiscSampling.Init(_seed.Value);
 
         // Generate Points
         _points = PoissonDiscSampling.GeneratePoints(_resourceRadius, _regionSize, _rejectionCount);
