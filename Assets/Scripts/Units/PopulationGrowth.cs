@@ -15,6 +15,9 @@ public class PopulationGrowth : MonoBehaviour
     // Area on where to spawn the builders
     [SerializeField] private StartingArea _spawnArea;
 
+    // Count of Builders Present
+    [SerializeField] private ResourceManager m_resources;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -35,6 +38,7 @@ public class PopulationGrowth : MonoBehaviour
 
             Vector3 randomPosition = new Vector3(randomX, 1f, randomZ);
             Instantiate(_builder, randomPosition, Quaternion.identity);
+            m_resources.AddResource(new Cost() { Resource = ResourceType.Person, Amount = 1 });
         }  
     }
 }

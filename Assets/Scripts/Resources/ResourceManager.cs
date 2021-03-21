@@ -36,6 +36,7 @@ public class ResourceManager : SerializedScriptableObject
     // Add a certain resource
     public void AddResource(Cost p_cost)
     {
+        Debug.Log("ADDING");
         _currentResources[p_cost.Resource] += p_cost.Amount;
     }
 
@@ -67,5 +68,7 @@ public class ResourceManager : SerializedScriptableObject
 public enum ResourceType
 {
     Wood,
-    Stone
+    Stone,
+    Bread, 
+    Person
 }

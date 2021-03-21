@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour
     {
         Move();
         Zoom();
+        ResetPosition();
     }
 
     private void Move()
@@ -65,5 +66,13 @@ public class CameraController : MonoBehaviour
         _minimapCamera.m_Lens.OrthographicSize = Mathf.Clamp(_minimapCamera.m_Lens.OrthographicSize, 11.6f, 27.8f);
         _zoomObject.localPosition += new Vector3(0, 0, -scrollInput * _zoomSpeed);
         _zoomObject.localPosition = new Vector3(_zoomObject.localPosition.x, _zoomObject.localPosition.y, Mathf.Clamp(_zoomObject.localPosition.z, _minZoomDistance, _maxZoomDistance));
+    }
+
+    private void ResetPosition()
+    {
+        if(_input.ResetPosition())
+        {
+            transform.position = Vector3.zero;
+        }
     }
 }

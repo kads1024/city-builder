@@ -31,6 +31,9 @@ public class ResourceGenerator : MonoBehaviour
     // The Layer of the ground where we will spawn the Resources
     [SerializeField] private LayerMask _ground;
 
+    // Area on where to avoid Spawning Resources
+    [SerializeField] private StartingArea _rejectionArea;
+
     private void Start()
     {
         // Initialize the Point Generator
@@ -72,8 +75,11 @@ public class ResourceGenerator : MonoBehaviour
                     {
                         if(currentPercentage >= randomChance)
                         {
-                            Instantiate(_objectsToBeGenerated[i], hit.point, Quaternion.identity, transform);
-                            break;
+                            if (Vector3.Distance(hit.point, _rejectionArea.transform.position) > _rejectionArea.Radius)
+                            {
+                                Instantiate(_objectsToBeGenerated[i], hit.point, Quaternion.identity, transform);
+                                break;
+                            }          
                         }
                         currentPercentage += percentage;
                     }

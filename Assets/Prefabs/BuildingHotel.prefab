@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7855460039312600428}
   - component: {fileID: 2270599980794772919}
   - component: {fileID: 281118013225646357}
+  - component: {fileID: 6420219706787137505}
   m_Layer: 0
   m_Name: BuildingHotel
   m_TagString: Untagged
@@ -71,7 +72,7 @@ MonoBehaviour:
   _resourceCost:
     Resource: 0
     Amount: 100
-  _totalWorkToComplete: 100
+  _totalWorkToComplete: 1000
   _height: 10
   _radius: 6.47
   _positionOffset: {x: 0, y: 3.45, z: -0.57}
@@ -164,6 +165,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &6420219706787137505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855460039312600424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55991bccff360f9438789f733705cabc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceManager: {fileID: 11400000, guid: 94c228f4a3ed52645b4d2fff6f42440a, type: 2}
+  _storageAmount:
+    Resource: 3
+    Amount: 5
 --- !u!1001 &7855460040369941662
 PrefabInstance:
   m_ObjectHideFlags: 0

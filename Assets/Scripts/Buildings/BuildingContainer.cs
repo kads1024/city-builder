@@ -19,4 +19,6 @@ public enum BuildingType
 {
     Hotel,
     WoodStorage,
+    StoneStorage,
+    FoodStorage,
 }

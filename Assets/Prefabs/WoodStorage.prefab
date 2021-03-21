@@ -70,9 +70,9 @@ MonoBehaviour:
     type: 2}
   _buildingName: Wood Storage
   _resourceCost:
-    Resource: 1
+    Resource: 0
     Amount: 50
-  _totalWorkToComplete: 100
+  _totalWorkToComplete: 300
   _height: 8.7
   _radius: 6.47
   _positionOffset: {x: 0, y: 3.45, z: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourceManager: {fileID: 11400000, guid: 94c228f4a3ed52645b4d2fff6f42440a, type: 2}
   _storageAmount:
-    Resource: 1
+    Resource: 0
     Amount: 100
 --- !u!65 &6833490185882084490
 BoxCollider:

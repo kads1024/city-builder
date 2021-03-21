@@ -26,6 +26,7 @@ public class PlayerInput : ScriptableObject
     [SerializeField] private KeyCode _cameraLeft;
     [SerializeField] private KeyCode _cameraRight;
     [SerializeField] private KeyCode _multipleSelection;
+    [SerializeField] private KeyCode _resetPosition;
 
     /// <summary>
     /// Camera Movement Controls
@@ -50,6 +51,15 @@ public class PlayerInput : ScriptableObject
     public bool MultipleSelectionActive()
     {
         return Input.GetKey(_multipleSelection);
+    }
+
+    /// <summary>
+    /// If the ResetPosition is pressed
+    /// </summary>
+    /// <returns>Returns true if you want Reset the Position of the object</returns>
+    public bool ResetPosition()
+    {
+        return Input.GetKey(_resetPosition);
     }
 
     // Mouse Buttons
