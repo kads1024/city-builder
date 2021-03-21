@@ -25,6 +25,7 @@ public class PopulationGrowth : MonoBehaviour
     public float CurrentTime { get; private set; }
     public int SpawnAmount { get; private set; }
     public bool AboutToOverflow { get; private set; }
+    public bool AboutToStarve { get; private set; }
     public bool Overflowed { get; private set; }
 
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class PopulationGrowth : MonoBehaviour
         StartCoroutine(SpawnBuilders());
         AboutToOverflow = false;
         Overflowed = false;
+        AboutToStarve = false;
         m_timeSpent.SetVariableValue(0.0f);
     }
 
@@ -46,8 +48,14 @@ public class PopulationGrowth : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_spawnRate);
+            m_resources.DeductResource(new Cost() { Resource = ResourceType.Bread, Amount = m_resources.CurrentResources[ResourceType.Person] });
+            if (m_resources.CurrentResources[ResourceType.Bread] <= 0)
+            {
+                Overflowed = true;
 
-            
+                // TODO: Game Over
+                m_sceneTransition.OpenGameOverScreen();
+            }
             for (int i = 0; i < SpawnAmount; i++)
             {
                 float randomX = _spawnArea.transform.position.x + Random.Range(-_spawnArea.Radius + 1, _spawnArea.Radius - 1);
@@ -57,6 +65,7 @@ public class PopulationGrowth : MonoBehaviour
                 Instantiate(_builder, randomPosition, Quaternion.identity);
                 m_resources.AddResource(new Cost() { Resource = ResourceType.Person, Amount = 1 });
             }
+            
             SpawnAmount++;
             if (m_resources.CurrentResources[ResourceType.Person] >= m_resources.CurrentResourceLimit[ResourceType.Person])
             {
@@ -96,5 +105,13 @@ public class PopulationGrowth : MonoBehaviour
             AboutToOverflow = false;
         }
 
+        if (m_resources.CurrentResources[ResourceType.Bread] - m_resources.CurrentResources[ResourceType.Person] <= 0)
+        {
+            AboutToStarve = true;
+        }
+        else
+        {
+            AboutToStarve = false;
+        }
     }
 }

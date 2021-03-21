@@ -40,16 +40,21 @@ public class PopulationGrowthUI : MonoBehaviour
         _populationGrowthText.text = "Population Growth:\n" + _populationManager.SpawnAmount.ToString();
         _timer -= Time.deltaTime;
 
-        if(_populationManager.AboutToOverflow)
+        _warnings[0].gameObject.SetActive(true);
+        _warnings[1].gameObject.SetActive(false);
+        _warnings[2].gameObject.SetActive(false);
+        if (_populationManager.AboutToOverflow)
         {
             _warnings[0].gameObject.SetActive(false);
             _warnings[1].gameObject.SetActive(true);
         }
-        else
+        if (_populationManager.AboutToStarve)
         {
-            _warnings[0].gameObject.SetActive(true);
-            _warnings[1].gameObject.SetActive(false);
+            _warnings[0].gameObject.SetActive(false);
+            _warnings[2].gameObject.SetActive(true);
         }
+
+
         if (_timer <= 0.0f)
         {
             _timer = _populationManager.SpawnRate;
